@@ -1,0 +1,77 @@
+/* Clean Energy - mobile fixes. Loaded after each page's own styles.
+ * Found by testing every page at 320-414px wide: the header overflowed on small phones
+ * (the menu button was pushed off-screen) and a few controls were too small to tap. */
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+img, svg, video, canvas, iframe { max-width: 100%; }
+body { overflow-x: hidden; }                       /* last-resort guard: never scroll sideways */
+table { max-width: 100%; }
+
+/* ---------- phones ---------- */
+@media (max-width: 640px) {
+  .wrap, .container { padding-left: 16px; padding-right: 16px; }
+
+  /* prevent iOS Safari from zooming into form fields */
+  input, select, textarea { font-size: 16px; }
+
+  /* comfortable tap targets (44px is the usual minimum) */
+  .icon-btn, .burger, .set-btn, nav .dd-btn { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; }
+  .btn { min-height: 44px; }
+  .logo, .hlogo { min-height: 44px; align-items: center; }
+  button.mini { min-width: 44px; min-height: 44px; }
+  button.toggle { min-height: 44px; min-width: 52px; }
+  .msgs button { min-height: 44px; }
+  button.back-link { min-height: 44px; display: inline-flex; align-items: center; }
+  input[type=range] { min-height: 44px; }
+  nav a { min-height: 44px; display: flex; align-items: center; }
+
+  /* long words / emails never push the layout wider than the screen */
+  h1, h2, h3, p, li, a, label, .msg { overflow-wrap: anywhere; }
+
+  /* table cells keep a readable width; the table itself scrolls sideways */
+  td, th { overflow-wrap: break-word; word-break: normal; min-width: 96px; max-width: 280px; }
+
+  /* wide data (admin tables, code, pre) scrolls inside itself */
+  .tbl-wrap, .table-wrap, .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  pre { overflow-x: auto; }
+}
+
+/* admin dashboard: two stat cards per row instead of one (was ~9 screens of scrolling) */
+@media (max-width: 640px) {
+  .statgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .stat { padding: 14px; }
+  .stat b { font-size: 1.5rem; }
+  .stat.big { grid-column: 1 / -1; }
+}
+
+/* ---------- small phones: this is where the header overflowed ---------- */
+@media (max-width: 430px) {
+  .nav { gap: 8px; }
+  .logo, .hlogo { gap: 8px; min-width: 0; }
+  .logo b, .hlogo b { font-size: .95rem; letter-spacing: .2px; white-space: nowrap; }
+  .logo small, .hlogo small { display: none; }
+  .logo svg, .logo img, .hlogo svg, .hlogo img { width: 34px; height: 34px; flex: none; }
+  .right, .hright { gap: 0; flex: none; }
+  .right .icon-btn, .hright .icon-btn, .right .set-btn, .hright .set-btn { min-width: 40px; }
+  .set-panel { right: -4px; width: min(300px, calc(100vw - 24px)); }
+  .btns { gap: 10px; }
+  .btns .btn { flex: 1 1 100%; justify-content: center; }
+}
+
+/* very small / old phones */
+@media (max-width: 340px) {
+  .logo b, .hlogo b { font-size: .85rem; }
+  .logo svg, .logo img, .hlogo svg, .hlogo img { width: 30px; height: 30px; }
+  .right .icon-btn, .hright .icon-btn, .right .set-btn, .hright .set-btn, .burger { min-width: 36px; }
+}
+
+/* the home hero used 100vh, which is taller than the visible area in mobile browsers */
+@supports (height: 100svh) {
+  body.home .hero { min-height: calc(100svh - 68px - env(safe-area-inset-top, 0px)); }
+}
+
+/* keep content clear of the chat button on phones */
+@media (max-width: 640px) {
+  body { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0px); }
+  footer { padding-bottom: calc(22px + 64px); }
+}

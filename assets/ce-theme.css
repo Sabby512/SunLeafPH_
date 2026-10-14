@@ -1,0 +1,48 @@
+/* SunLeaf PH - shared look. Loaded last on every page: calmer, flatter, tighter. */
+
+body{font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+body h1,body .hero h1,body .phero h1{font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.2;font-weight:700;letter-spacing:-.01em}
+body h2,body .sec-h{font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.25;font-weight:700;letter-spacing:-.005em;margin-bottom:8px}
+body h3{font-weight:600}
+body .hero p,body .phero p{font-size:1rem;margin:12px 0 20px}
+
+/* logo: "SunLeaf PH" + tagline, normal case */
+body .logo b,body .brand b,body .adm-brand b{font-size:1.15rem;font-weight:700;letter-spacing:0;text-transform:none}
+body .logo small,body .brand small{display:block;font-size:.7rem;letter-spacing:0;text-transform:none;font-weight:400}
+@media(max-width:480px){body .logo small,body .brand small{display:none}}
+@media(min-width:1001px) and (max-width:1299px){body .logo small{display:none}}
+
+/* small labels: plain text instead of spaced uppercase pills */
+body .tag,body .eyebrow,body .badge-row span{font-size:.8rem;font-weight:600;letter-spacing:0;text-transform:none;margin-bottom:8px}
+body .badge{border-radius:4px;padding:3px 10px}
+
+/* buttons and controls: squarer, flatter */
+body .btn,body .auth .signup,body .auth .out,body nav li.navauth a.signup{border-radius:6px}
+body .btn{padding:10px 18px;font-size:.85rem}
+body .btn.sm,body .right .btn.sm,body .hright .btn.sm{padding:8px 14px;border-radius:6px}
+body .set-btn{border-radius:6px}
+body nav .dd-menu{border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+body nav .dd-menu .ddi{width:34px;height:34px;border-radius:8px}
+body .set-panel,body .ce-pop{border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+body .gic{border-radius:8px}
+
+/* cards: thin border, small radius, no shadow, less padding */
+body .card,body .cards>*,body .reasons>*,body .panel{border-radius:8px;box-shadow:none}
+body .card:not([id]){padding:20px}
+body .cta{padding:28px 32px;border-radius:8px}
+body .cards,body .reasons{gap:14px}
+body .reasons{margin-top:24px}
+
+/* flat bands instead of gradients */
+body .closing,body .slogan{background:var(--gd)}
+
+/* spacing: sections were 64-96px tall, now ~40px */
+body .sec,body .more,body .journey,body .ideas,body .closing,body .slogan,body .collab,body .share,body .final,body section.block{padding-top:40px;padding-bottom:40px}
+body section.block{padding-bottom:0}
+body .what,body .imagine,body .intro{padding-top:32px;padding-bottom:16px}
+body .closing,body .collab,body .share,body .slogan{margin-top:32px}
+body .phero{min-height:0;padding:40px 0}
+body .hero,body.home .hero{min-height:360px}
+body .hero .container,body .hero .wrap{padding-top:32px;padding-bottom:32px}
+body footer:has(.fgrid){padding-top:32px}
+body .fgrid{gap:28px;padding-bottom:24px}
